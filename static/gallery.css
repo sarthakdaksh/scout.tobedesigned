@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0%;
+    font-family: 'Poppins','san-serif';
+}
+.main{
+    min-height: 100ch;
+    background-image: linear-gradient(rgba(81, 159, 236, 0.8),rgba(85, 235, 227, 0.8)),url(gallery.jpeg);
+    background-position: center;
+    background-size:cover ;
+}
+.header{
+
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    height: 65px;
+    align-items: center;
+}
+.owner{
+    margin-left: 2%;
+    margin-right: 1%;
+}
+.header img{
+    clip-path: circle();
+    width: 60px;
+}
+.upper{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+.slider{
+    display: flex;
+    width: 800px;
+    overflow-x: scroll;
+    margin: 0% 25%;
+}
+
+/* .slider figure img{
+    width: 20%;
+    float: left;
+}
+@keyframes slider{
+
+    0%{left: 0%;}
+    20%{left: 0%;}
+    25%{left: -100%;}
+    45%{left: -100%;}
+    50%{left: -200%;}
+    70%{left: -200%;}
+    75%{left: -300%;}
+    95%{left: -300%;}
+} */
+
+.desc{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: white;
+    border-radius: 20px;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+.text{
+    margin: 2% 2%;
+    padding: 2% 2%;
+}
+.change{
+    margin-right: 2%;
+}
+.change img{
+    clip-path: circle();
+}
