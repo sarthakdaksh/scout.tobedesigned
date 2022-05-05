@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static\index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="search-container">
+            <form method="POST" class="search-bar">
+                {% csrf_token %}
+                {{ form }}
+            <input name="search" type="text" placeholder="Search">
+            <button type="submit"> <img src="static/search.png" alt=""> </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="static\gallery.css">
+</head>
+<body>
+    {%for pro in prof%}
+    <div class="main">
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd; fixed-top">
+            <div class="container-fluid">
+              <a class="navbar-brand" style="font-size:23px" href="/home"><span class="change"><img src="{{pro.personimage}}" alt=""  height="70" class="d-inline-block align-text-center"></span><strong>  {{pro.name}}</strong></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/fourth">Your Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/second">Add Log</a>
+                      </li>
+                </div>
+              </div>
+            </div>
+          </nav>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> 
+
+        <div class="upper">
+
+        
+            <img src="{{pro.photo}}" alt="" height="400px">
+    
+       
+        </div>
+        
+        <div class="desc">
+            <div class="text">
+            <font size = 5>Journeyname: {{pro.journeyname}}</font><br>
+            <font size = 5>Journeylocation: {{pro.journeylocation}}</font><br>
+            <font size = 5>Post Location: {{pro.placelocation}}</font><br>
+            <font size = 5>Date: {{pro.date}}</font><br>
+            <font size = 5>Description:</font><br>
+            <font size = 4>{{pro.description}}</font>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+</body>
+</html>

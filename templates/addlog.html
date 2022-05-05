@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+    <script>
+       type="text/javascript"
+        function initialize() {
+          var input = document.getElementById('lo_cation');
+        new google.maps.places.Autocomplete(input);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+
+    <title>Scout</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd; fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" style="font-size:23px" href="/home"><img src="static\icon.png" alt="" width="30" height="30" class="d-inline-block align-text-top"><strong>  Scout</strong></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/fourth">Your Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/second">Add Log</a>
+                  </li>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <div class= "container mb-3 py-4">
+      <h1 class="text-center"><strong>Add Your Journey</strong></h1>
+        <form class="container" method="POST" action = "/second">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="Photo">Choose Photo</label>
+            <input class="form-control" type="file" name="Photo" id="Photo">
+          </div>
+
+          <div class="mb-3">
+            <label for="Description">Description</label>
+            <textarea class="form-control mb-3"  id="Description" name="Description" rows="auto" placeholder="Write your thoughts here"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="lo_cation" >Input location</label>
+            <input type="text" class="form-control" name="lo_cation" id="lo_cation" placeholder="add location here" autocomplete = "on">
+          </div> 
+
+          {% comment %} <div class="mb-3">
+            <label>Select a journey</label>
+            <select name="category" class="form-control">
+                <option value='none'>Select a category...</option>
+                {% for category in categories %}
+                <option value='{{category.id}}'>{{category.name}}</option>
+                {% endfor %}
+            </select>
+          </div> {% endcomment %}
+          <div class="mb-3">
+            <label for="journey_name">Create a new journey</label>
+            <input type="text" placeholder="Create a new category" name="journey_name" id="journey_name" class="form-control">
+          </div>
+          <div class="col-12 mb-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+    </div>
+    <script>
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs83Fv9BcpinG30jJqixTcwuxUQ4zNmsU&libraries=places&callback=initAutocomplete&libraries=places&v=weekly"
+    </script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="static\prfile.css">
+</head>
+<body>
+    <div class="main">
+            <nav class="navbar navbar-light" style="background-color: #e3f2fd; fixed-top">
+                <div class="container-fluid">
+                {%for pro in prof%}
+                  <a class="navbar-brand" style="font-size:23px" href="/home"><span class="change"><img src="{{pro.personimage}}" alt=""  height="70" class="d-inline-block align-text-center"></span><strong>  {{pro.name}}</strong></a>
+                  {%endfor%}
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/fourth">Your Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/second">Add Log</a>
+                          </li>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>  
+        
+            <div class="list">
+                {%for pr in profuniq%}
+                <div class="container">
+                    <div class="about">
+                        <font size = 4>Location: {{pr.placelocation}}</font>
+                    </div>
+                    <div class="image">
+                        <img src="{{pr.photo}}" alt="fail to load" class="picture" width="150">
+                    </div>
+                    <div class="about">Date: {{pr.date}}</div>
+                    <div class="about">Description:</div>
+                    <div class="about1"> 
+                        {{pr.description}}
+                    </div>
+                    <div class="about">...<font color = "blue">Read more</font>
+                    </div>
+                    
+                        <div class="view">
+                            <form class="view-button" method="POST">
+                                {% csrf_token %}
+                                <input name="secret" type="hidden" value={{pr.key}} ></input>
+                                <button name = "profsub" type="submit" class="view-button" value = {{pr.keyid}}><font size = 4>View</font></button>
+                            </form>
+                        </div>
+                </div>
+                <hr class="line" size="7px">
+
+                {%endfor%}
+
+            </div>
+            <div class="comment">
+                <div class="aline">
+                <form class = "post" method="post">
+                  {%csrf_token%}
+                  {%for pm in prof%}
+                    <input name="secret2" type="hidden" value={{pm.key}} ></input>
+                    {%endfor%}
+                    <input type="text" name="comment" placeholder="Comment">
+                    <button type="submit" name = "cmtsub" > <img src="static\send.png" alt=""> </button>
+                </form>
+                </div>
+                <hr width="100%">
+                <div class="review">
+                    <div class="person">
+                        <img src="static\pp.jpg" alt="fail to load">
+                        <div>
+                        The spots that you marks are really very nice, also i will the restaurant
+                        that you marked in your journey.
+                        </div>
+                    </div>
+                    {%for pk in cmt%}
+                    <div class="person">
+                        <img src="static\profile.PNG" alt="fail to load">
+                        <div>
+                        {{pk.comments}}
+                        </div>
+                    </div>
+                    {%endfor%}
+                    <div class="person">
+                        <img src="static\Adam.jpg" alt="fail to load">
+                        <div>
+                        The spots that you marks are really very nice, also i will the restaurant
+                        that you marked in your journey.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
